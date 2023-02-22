@@ -118,10 +118,16 @@ Before proceeding, you MUST install things listed below.
    ```sh
    cd serve_yolov5
    ./setup.sh
+   ls ./resources/model-store/coco_yolov5s.mar
    ```
-2. Run
+3. Run
    ```sh
    ./run_ts.sh
+   docker logs $(docker ps -lq)
+   ```
+3. Test
+   ```sh
+   curl -T PATH/TO/TEST/IMAGE 127.0.0.1:9080/predictions/coco_yolov5s
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
