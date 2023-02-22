@@ -25,3 +25,4 @@ if [ -e resources/model-store/coco_yolov5s.mar ]; then
   echo "Model archive is generated at ./resource/model-store"
 else
   echo "Failed, Please check stdout above"
+fi
