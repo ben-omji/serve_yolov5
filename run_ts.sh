@@ -1,5 +1,6 @@
 #!/bin/sh
 SHELL_PATH=$(pwd)
+MODEL="$1"
 
 docker run -itd --rm -u root --gpus all --shm-size=1g \
 -p 9080:8080 \
@@ -10,5 +11,5 @@ docker run -itd --rm -u root --gpus all --shm-size=1g \
 -v $SHELL_PATH/resources/model-store:/home/model-server/model-store pytorch/torchserve:latest-gpu torchserve \
 --start \
 --model-store model-store \
---models coco_yolov5s.mar \
+--models $MODEL \
 --foreground
