@@ -117,17 +117,38 @@ Before proceeding, you MUST install things listed below.
 2. Setup
    ```sh
    cd serve_yolov5
-   ./setup.sh
-   ls ./resources/model-store/coco_yolov5s.mar
+
+   # Object detection
+   ./setup.sh box
+
+   # Object segmentation
+   ./setup.sh seg
+
+   # Check generated model archive
+   ls ./resources/model-store/
    ```
 3. Run
    ```sh
-   ./run_ts.sh
+   # Object detection
+   ./run_ts.sh coco_yolov5s.mar
+
+   docker logs $(docker ps -lq)
+
+   # !WARNING! >> If you want to run both models simultaneously, YOU MUST CHANGE THE PORT IN SCRIPT for preventing the conflict.
+
+   # Object segmentation
+   ./run_ts.sh coco_yolov5s-seg.mar
+
+
    docker logs $(docker ps -lq)
    ```
 3. Test
    ```sh
+   # Object detection
    curl -T PATH/TO/TEST/IMAGE 127.0.0.1:9080/predictions/coco_yolov5s
+
+   # Object segmentation
+   curl -T PATH/TO/TEST/IMAGE 127.0.0.1:9080/predictions/coco_yolov5s-seg
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
