@@ -18,7 +18,7 @@ if [ ! -d serve ] ; then
   cp config.properties serve/docker/
   cd serve && git checkout origin/master -- requirements/common.txt && cd $SHELL_PATH
 fi
-cd serve/docker && ./build_image.sh -bt production -g -cv cu116 && cd $SHELL_PATH
+cd serve/docker && ./build_image.sh -bt production -g -cv cu111 && cd $SHELL_PATH
 
 docker run -it --rm -u root --gpus all --entrypoint '' -v $SHELL_PATH/resources:/home/model-server/resources pytorch/torchserve:latest-gpu torch-model-archiver -f \
 --model-name coco_$MODEL \
