@@ -14,9 +14,8 @@ docker run -it --rm -v $SHELL_PATH/resources/:/usr/src/app/resources ultralytics
 mv resources/weights/$MODEL.torchscript resources/weights/coco_$MODEL.torchscript.pt
 
 if [ ! -d serve ] ; then
-  git clone -b v0.7.1 https://github.com/pytorch/serve.git
+  git clone -b v0.8.1 https://github.com/pytorch/serve.git
   cp config.properties serve/docker/
-  cd serve && git checkout origin/master -- requirements/common.txt && cd $SHELL_PATH
 fi
 cd serve/docker && ./build_image.sh -bt production -g -cv cu111 && cd $SHELL_PATH
 

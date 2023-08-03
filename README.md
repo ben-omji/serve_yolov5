@@ -107,6 +107,7 @@ To get a local copy up and running follow these simple example steps.
 
 Before proceeding, you MUST install things listed below.
 * [Docker](https://docs.docker.com/engine/install/)
+* [Nvidia-container-toolkit](https://github.com/NVIDIA/nvidia-container-toolkit)
 
 ### Quickstart
 
